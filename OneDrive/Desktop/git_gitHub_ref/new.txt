@@ -1,1 +1,4 @@
 hello first
+hello i can see green line to left side where vs code also track 
+iam going to  second commit
+
