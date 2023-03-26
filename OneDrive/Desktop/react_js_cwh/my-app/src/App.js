@@ -2,7 +2,7 @@
 import './App.css';
 import Navbar from './MyComponents/navbar';
 import TextForm from './MyComponents/TextForm';
-import DarkMode from './MyComponents/DarkMode';
+
 
 function App() {
   return (

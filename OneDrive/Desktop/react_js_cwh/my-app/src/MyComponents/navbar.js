@@ -16,7 +16,7 @@ const Navbar = (props) => {
   };
   
   const storedTheme = localStorage.getItem("theme");
-  const [theme2, setTheme2] = useState("navbar navbar-expand-lg navbar-dark bg-dark");
+  const [theme2, setTheme2] = useState("light");
   const [fontchange,setFont]=useState("black")
 
   
@@ -31,17 +31,20 @@ const Navbar = (props) => {
   const toggleTheme = (e) => {
     if (e.target.checked) {
       setDark();
-      // setTheme2("navbar navbar-expand-lg navbar-dark bg-light")
+      setTheme2("dark")
     } else {
       setLight();
-      // setTheme2("navbar navbar-expand-lg navbar-dark bg-dark")
+      setTheme2("light")
 
     }
   };
+const navset = {
+  position:"relative" , top: "-9px"
+}
 
   return (
     <div>
-     <nav className= { theme2} >
+     <nav className= {`navbar navbar-expand-lg navbar-${theme2} bg-${theme2}`} >
   <div className="container-fluid"  >
     <a className="navbar-brand" href="#">{props.title}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,13 +60,13 @@ const Navbar = (props) => {
         </li>       
       </ul>
       <div className="toggle-theme-wrapper">
-      <span>☀️</span>
+      <span  style={navset}>☀️</span>
       <label className="toggle-theme" htmlFor="checkbox">
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" id="checkbox" onChange={toggleTheme} defaultChecked={defaultDark} ></input> </div>
         <div className="slider round"></div>
       </label>
-      <span>🌒</span>
+      <span style={navset}>🌒</span>
     </div>
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

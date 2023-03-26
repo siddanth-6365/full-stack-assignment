@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import "./DarkMode.css";
+
 
 
 const TextForm = () => {
@@ -27,6 +29,18 @@ const TextForm = () => {
     }
     setActive2(!active2);
   };
+  const previewdiv = {
+    border:"1px solid black",
+  height:"200px"
+  }
+
+  const Copytextfun = () => {
+    var textcopy = document.getElementById("exampleFormControlTextarea1")
+    // text.style.color = "green";
+    textcopy.select();
+    navigator.clipboard.writeText(textcopy.value);
+  }
+
   return (
     <>
       <div>
@@ -38,37 +52,46 @@ const TextForm = () => {
             onChange={(e) => {
               setText(e.target.value);
             }}
-            style={{ color: fontColor , border: "1px solid black" }}
+            style={{ color: fontColor, border: "1px solid black" }}
             placeholder={"Enter here.."}
             id="exampleFormControlTextarea1"
             rows="7"
           ></textarea>
         </div>
-        <button
-          type="button"
-          id="btn-case"
-          onClick={changeCase}
-          className={active ? "btn btn-dark" : "btn btn-primary"}
-        >
-          Convert to {active ? "Lower" : "Upper"} case{" "}
-        </button>
+        <div className="container">
+          <button
+            type="button"
+            id="btn-case"
+            onClick={changeCase}
+            className={active ? "btn btn-dark" : "btn btn-primary"}
+          >
+            Convert to {active ? "Lower" : "Upper"} case{" "}
+          </button>
 
-        <button
-          type="button"
-          id="btn-case"
-          className={active2 ? "btn btn-dark" : "btn btn-danger"}
-          onClick={changeFont}
-        >
-          Change Font
-        </button>
+          <button
+            type="button"
+            id="btn-case"
+            className={active2 ? "btn btn-dark" : "btn btn-danger"}
+            onClick={changeFont}
+          >
+            Change Font
+          </button>
+          <button type="button" onClick={Copytextfun} class="btn btn-dark ">Copy-Text</button>
+        </div>
       </div>
-      <div className="container my-3">
+      <div className="container ">
         <h2>Summary</h2>
         <p>
           {text.split(" ").length - 1} words and {text.length} characters{" "}
         </p>
         <p> Takes {(text.split(" ").length - 1) * 0.008} mintues to read </p>
       </div>
+
+  <h2>Preview</h2>
+  <div className="container-preview"  style={previewdiv}>
+  <p> { text}</p>
+</div>
+
     </>
   );
 };

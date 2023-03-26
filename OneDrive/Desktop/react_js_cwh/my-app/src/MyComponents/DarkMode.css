@@ -10,6 +10,7 @@
     --font-color: #eee;
     --background-color: #333;
     --link-color: lightblue;
+    
   }
   
   body {
@@ -21,3 +22,8 @@
     color: var(--link-color);
   }
   
+.container-preview {
+border : 2px solid white;
+
+
+}
