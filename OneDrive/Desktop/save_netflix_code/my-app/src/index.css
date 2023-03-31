@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+
+body {
+    background-color: black;
+    /* color: aliceblue; */
+    font-family: 'Prompt','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
